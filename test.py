@@ -3,9 +3,11 @@
 name = input("Enter your name please: ")
 bid = int(input("Enter your bid: $"))
 
-is_there = input("Is there other biders who's want to bid :")
 bid_ = {name: bid}
 max = bid
+
+is_there = input("Is there other biders who's want to bid :")
+
 while is_there == "yes":
     name = input("Enter your name please: ")
     bid = int(input("Enter your bid: $"))
