@@ -1,4 +1,8 @@
 # # ! This is a bid project
+import os
+from art import logo
+
+print(logo)
 
 name = input("Enter your name please: ")
 bid = int(input("Enter your bid: $"))
@@ -9,6 +13,10 @@ max = bid
 is_there = input("Is there other biders who's want to bid :")
 
 while is_there == "yes":
+
+    # Clearing the Screen
+    os.system("cls")
+
     name = input("Enter your name please: ")
     bid = int(input("Enter your bid: $"))
     bid_ = {name: bid}
