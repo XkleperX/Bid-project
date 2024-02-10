@@ -1,36 +1,43 @@
 # # ! This is a bid project
+
+
 import os
 from art import logo
 
+
+def get_higher_bid(bid_dict):
+    max_bid = 0
+
+    for bidders in bid_dict:
+        bid_price = bid_dict[bidders]
+
+        if bid_price > max_bid:
+            max_bid = bid_price
+            winner = bidders
+
+    print(f"the winner is {winner} with bid ${max_bid}")
+
+
 print(logo)
 
-name = input("Enter your name please: ")
-bid = int(input("Enter your bid: $"))
+bid = {}
 
-bid_ = {name: bid}
-max = bid
+name = input("Enter your name please: ")
+price = int(input("Enter your bid: $"))
+
+bid[name] = price
 
 is_there = input("Is there other biders who's want to bid :")
 
 while is_there == "yes":
-
-    # Clearing the Screen
     os.system("cls")
-
     name = input("Enter your name please: ")
-    bid = int(input("Enter your bid: $"))
-    bid_ = {name: bid}
-
-    if bid > max:
-        max = bid
-    else:
-        continue
-
+    price = int(input("Enter your bid: $"))
     is_there = input("Is there other biders who's want to bid: ")
+    bid[name] = price
 
 if is_there == "no":
-    for bider in bid_:
-        print(f"the winner is {bider} with bid ${bid}")
+    get_higher_bid(bid)
 
 else:
-    print("please enter your 'yes or no' ")
+    print("Please enter your 'yes or no' ")
