@@ -7,7 +7,7 @@ from art import logo
 
 def get_higher_bid(bid_dict):
     max_bid = 0
-
+    winner = ""
     for bidders in bid_dict:
         bid_price = bid_dict[bidders]
 
@@ -20,24 +20,22 @@ def get_higher_bid(bid_dict):
 
 print(logo)
 
-bid = {}
+bids = {}
 
-name = input("Enter your name please: ")
-price = int(input("Enter your bid: $"))
 
-bid[name] = price
-
-is_there = input("Is there other biders who's want to bid :")
-
-while is_there == "yes":
-    os.system("cls")
+while True:
     name = input("Enter your name please: ")
     price = int(input("Enter your bid: $"))
-    is_there = input("Is there other biders who's want to bid: ")
-    bid[name] = price
+    bids[name] = price
 
-if is_there == "no":
-    get_higher_bid(bid)
+    more_bidders = input("Are there other bidders? (yes/no): ").lower()
 
-else:
-    print("Please enter your 'yes or no' ")
+    if more_bidders == "yes":
+        os.system("cls")
+        continue
+    elif more_bidders == "no":
+        break
+
+
+get_higher_bid(bids)
+
